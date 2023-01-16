@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,400;0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Карта</title>
+</head>
+<body>
+    <div class="main-conteiner">
+        <div class="header">
+            <img src="https://media.discordapp.net/attachments/1060940045365825567/1062789284190494760/nerv-logo-png-transparent.png" class="logo">
+            <div class="name">
+                <h1>ネルフ</h1>
+                <p>Экскурсии по Москве</p>
+            </div>
+            <div class="navigation">
+                <button onclick="window.location='/order/'">Мои заказы</button>
+                <button onclick="window.location='/'">Назад</button>
+                <button onclick="window.location='/about/'">О нас</button>
+            </div>
+        </div>
+        <div class="footer_map">
+            <div id="map" class="map"></div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+            <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+            <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+            <script src="/LK/script.js"></script>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <p>Mobile: +7(999)000-00-00</p>
+            <p>eMail: example@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>

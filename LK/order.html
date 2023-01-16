@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,400;0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/modal.css">
+    <title>Заказы</title>
+</head>
+<body>
+    <div class="main-conteiner">
+        <div class="header">
+            <img src="https://media.discordapp.net/attachments/1060940045365825567/1062789284190494760/nerv-logo-png-transparent.png" class="logo">
+            <div class="name">
+                <h1>ネルフ</h1>
+                <p>Экскурсии по Москве</p>
+            </div>
+            <div class="navigation">
+                <button onclick="window.location='/'">Назад</button>
+                <button onclick="window.location='/map/'">Карта</button>
+                <button onclick="window.location='/about/'">О нас</button>
+            </div>
+        </div>
+        <div class="footer_map">
+            <div class="table">
+                <h1>Оставленные заявки</h1>
+                <table>
+                    <thead>
+                        <tr>
+                          <th scope="col">№</th>
+                          <th scope="col">Название маршрута</th>
+                          <th scope="col">Дата</th>
+                          <th scope="col">Стоимость</th>
+                          <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range $item, $key := .Arr }}
+                            <tr>
+                                <td>{{ $item }}</td>
+                                <td>{{ index $key 2 }}</td>
+                                <td>{{ index $key 3 }}</td>
+                                <td>{{ index $key 7 }}</td>
+                                <td>
+                                    <div class="chouse">
+                                        <button class="viuew">👁</button>
+                                        <button class="edit">✎</button>
+                                        <button class="delete" id="{{ index $key 0 }}">🗑</button>
+                                        <p class="guid-name ghoste">{{ index $key 1 }}</p>
+                                        <p class="route-name ghoste">{{ index $key 2 }}</p>
+                                        <p class="date ghoste">{{ index $key 3 }}</p>
+                                        <p class="time ghoste">{{ index $key 4 }}</p>
+                                        <p class="duration ghoste">{{ index $key 5 }}</p>
+                                        <p class="persons ghoste">{{ index $key 6 }}</p>
+                                        <p class="price ghoste">{{ index $key 7 }}</p>
+                                        <p class="optionFirst ghoste">{{ index $key 8 }}</p>
+                                        <p class="optionSecond ghoste">{{ index $key 9 }}</p>
+                                        <p class="start_price ghoste">{{ index $key 10 }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+                <script src="/LK/order.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-window">
+            <button class="btn-close">✖</button>
+            <h1>Оформление заявки</h1>
+            <p>ФИО гида: <b class="guid-name">Гид Александр</b></p>
+            <p>Название маршрута: <b class="route-name">Название маршрута</b></p>
+            <div class="bron-flex">
+                <div class="label-form">
+                    <label>Дата экскурсии</label><br>
+                    <input type="date" class="date-input">
+                </div>
+                <div class="label-form">
+                    <label>Время начала</label><br>
+                    <input type="time" class="time-input">
+                </div>
+                <div class="label-form">
+                    <label>Длительность экскурсии</label><br>
+                    <input class="count-time-input">
+                </div>
+                <div class="label-form">
+                    <label>Количество человек</label><br>
+                    <input class="peoples-input">
+                </div>
+            </div>
+            <p><b>Дополнительные опции</b></p>
+            <div class="dop-options">
+                <div>
+                    <p><input type="checkbox" class="opt-1">Опция</p>
+                    <p>Описание опции<br>Размер скидки</p>
+                </div>
+                <div>
+                    <p><input type="checkbox" class="opt-2">Опция</p>
+                    <p>Описание опции<br>Размер скидки</p>
+                </div>
+            </div>
+            <p>Итоговая стоимость: <b class="price">0</b></p>
+            <div class="buttons">
+                <button class="btn-cancel">Отменить</button>
+                <button class="btn-send">Отправить</button>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="/LK/modal.js"></script>
+    <footer>
+        <div>
+            <p>Mobile: +7(999)000-00-00</p>
+            <p>eMail: example@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
